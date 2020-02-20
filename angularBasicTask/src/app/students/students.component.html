@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="table-responsive">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Operations</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let student of students">
+            <tr>
+              <td> {{student.id}}</td>
+              <td> {{student.name}}</td>
+              <td style="width: 350px;"> {{student.address.dist}}, {{student.address.state}},  {{student.address.zip}}</td>
+              <td ><button class="btn-info"(click)="viewDetail(student.id)">view</button> <button class="btn-light" (click)="editPage(student.id)">goEdit</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <hr>
+ <app-marks [parentData]="studentInfo"></app-marks>
+ <router-outlet></router-outlet>
+
+ 
+
+
