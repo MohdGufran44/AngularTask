@@ -40,7 +40,7 @@ export class StudentsComponent implements OnInit {
     }
   }
   editPage(id){
-    this.router.navigate(['studentEdit',id]);
+    this.router.navigate(['./students',id]);
   }
 
 }

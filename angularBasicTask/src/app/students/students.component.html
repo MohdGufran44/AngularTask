@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-sm-12">
       <div class="table-responsive">
@@ -16,7 +16,7 @@
               <td> {{student.id}}</td>
               <td> {{student.name}}</td>
               <td style="width: 350px;"> {{student.address.dist}}, {{student.address.state}},  {{student.address.zip}}</td>
-              <td ><button class="btn-info"(click)="viewDetail(student.id)">view</button> <button class="btn-light" (click)="editPage(student.id)">goEdit</button></td>
+              <td style="width: 650px;"><button class="btn-info"(click)="viewDetail(student.id)">view</button> <button class="btn-light" (click)="editPage(student.id)">goEdit</button></td>
             </tr>
           </tbody>
         </table>
@@ -28,7 +28,6 @@
 
   <hr>
  <app-marks [parentData]="studentInfo"></app-marks>
- <router-outlet></router-outlet>
 
  
 
