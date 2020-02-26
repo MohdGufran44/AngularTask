@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angularBasicTask';
 
-  constructor(private rout:Router){}
+  constructor(private router:Router){}
+
+  // register(){
+  //   this.router.navigate(['/register']);
+  // }
 }

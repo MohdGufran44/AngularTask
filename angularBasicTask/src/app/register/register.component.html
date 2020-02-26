@@ -1,0 +1,90 @@
+<div class="container">
+    <h1>Registration Form</h1>
+    {{registrationForm.value | json}}
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>First Name</label>
+            <input [class.is-invalid]="firstName.invalid && firstName.touched" 
+            formControlName="firstName" type="text" class="form-control">
+            <!-- <small class="text-danger" [class.d-none]="firstName.valid || firstName.untouched">First Name is required</small> -->
+            <div *ngIf="firstName.invalid && firstName.touched">
+                <small *ngIf="firstName.errors?.required" class="text-danger">Field is required</small>
+                <small *ngIf="firstName.errors?.minlength" class="text-danger">Length must be at least 3 character</small>
+                <small *ngIf="firstName.errors?.maxlength" class="text-danger">Length must be at most 20 character</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Last Name</label>
+            <input [class.is-invalid]="lastName.invalid && lastName.touched" 
+            formControlName="lastName" type="text" class="form-control">
+            <!-- <small class="text-danger" [class.d-none]="registrationForm.get('lastName').valid || registrationForm.get('lastName').untouched">Last Name is required</small> -->
+            <div *ngIf="lastName.invalid && lastName.touched">
+                <small *ngIf="lastName.errors?.required" class="text-danger">Field is required</small>
+                <small *ngIf="lastName.errors?.minlength" class="text-danger">Length must be at least 3 character</small>
+                <small *ngIf="lastName.errors?.maxlength" class="text-danger">Length must be at most 20 character</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>date of Birth</label>
+            <input [class.is-invalid]="registrationForm.get('dob').invalid &&
+            registrationForm.get('dob').touched" formControlName="dob" type="date" class="form-control">
+            <small class="text-danger" [class.d-none]="registrationForm.get('dob').valid || registrationForm.get('dob').untouched">Date is required</small>
+        </div>
+
+        <div class="form-group">
+            <div class="form-check">
+                <label class="form-check-label" for="male">
+                  <input formControlName="male" type="radio" class="form-check-input" value="male" checked>Male
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <label class="form-check-label" for="female">
+                  <input formControlName="female" type="radio" class="form-check-input" value="female">female
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input [class.is-invalid]="email.invalid && email.touched" 
+            formControlName="email" type="email" class="form-control">
+            <small class="text-danger" [class.d-none]="email.valid || email.untouched">Field is required</small>
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input [class.is-invalid]="password.invalid && password.touched"
+            formControlName="password" type="password" class="form-control">
+            <small class="text-danger" [class.d-none]="password.valid || password.untouched">field is required</small>
+
+        </div>
+
+        <div class="form-group">
+            <label>Confirm Password</label>
+            <input formControlName="ConfirmPassword" type="password" class="form-control">
+        </div>
+
+        <div formGroupName='marks'>
+            <div class="form-group">
+                <label>English</label>
+                <input formControlName="english" type="number" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>Math</label>
+                <input formControlName="math" type="number" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>Science</label>
+                <input formControlName="science" type="number" class="form-control">
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" (click)="home()">submit</button>
+    </form>
+</div>
