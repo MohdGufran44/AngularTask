@@ -1,0 +1,10 @@
+.reg-form{
+    width: 60%;
+    overflow: hidden;
+}
+
+.form-title{
+    margin-top: 15px;
+    margin-bottom: 25px;
+    text-align: center;
+}

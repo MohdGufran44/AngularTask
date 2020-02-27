@@ -20,6 +20,10 @@ export class RegisterComponent implements OnInit {
     return this.registrationForm.get('lastName');
   }
 
+  get dob(){
+    return this.registrationForm.get('dob');
+  }
+
   get email(){
     return this.registrationForm.get('email');
   }
@@ -28,19 +32,28 @@ export class RegisterComponent implements OnInit {
     return this.registrationForm.get('password');
   }
 
+  get english(){
+    return this.registrationForm.get('marks').get('english');
+  }
+  get math(){
+    return this.registrationForm.get('marks').get('math');
+  }
+  get science(){
+    return this.registrationForm.get('marks').get('science');
+  }
+
   registrationForm = this.builder.group({
     firstName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
     lastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
     dob: ['', Validators.required],
-    male: [''],
-    female: [''],
-    email: ['', Validators.required],
+    gender: ['', Validators.required],
+    email: ['', [Validators.required, Validators.pattern("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,30}")]],
     password: ['', [Validators.required, Validators.pattern("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&].{8,}")]],
     ConfirmPassword: ['', Validators.required],
     marks: this.builder.group({
-      english: [''],
-      math: [''],
-      science: [''],
+      english: ['', Validators.required],
+      math: ['',Validators.required],
+      science: ['',Validators.required],
     })
   });
   // registrationForm = new FormGroup({
@@ -63,13 +76,25 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  home(){
-    this.router.navigate(['/home']);
-  }
+  // home(){
+  //   this.router.navigate(['/home']);
+  // }
 
   onSubmit(){
-    alert("raza");
-    console.log(this.registrationForm.value);
+    localStorage.setItem("email", this.registrationForm.get('email').value);
+    localStorage.setItem("password", this.registrationForm.get('password').value);
+    this.router.navigate(['/home']);
+  }
+  status='';
+  
+  check(){
+    let pwd=this.registrationForm.get('password').value;
+    let cpwd=this.registrationForm.get('ConfirmPassword').value;
+      if((pwd===cpwd)==false){
+        this.status="not match";
+      }else{
+        this.status="";
+      }
   }
 
 }

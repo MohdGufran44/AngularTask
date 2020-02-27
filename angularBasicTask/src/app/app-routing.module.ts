@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { StudentsComponent } from './students/students.component';
@@ -10,10 +11,11 @@ const routes: Routes = [
   {path : '', redirectTo: '/home', pathMatch : 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'register', component: RegisterComponent},
-  // {path: 'students', children:[
-  //   {path: '', component: StudentsComponent},
-  //   {path: ':id', component: EditComponent}
-  // ]}
+  {path: 'login', component: LoginComponent},
+  {path: 'students', children:[
+    {path: '', component: StudentsComponent},
+    {path: ':id', component: EditComponent}
+  ]}
   // {path:'studentEdit/:id',component: EditComponent},
 ];
 
