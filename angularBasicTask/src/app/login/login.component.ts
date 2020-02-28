@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   constructor(private router: Router, private builder:FormBuilder) { }
+  loginStatus
 
   ngOnInit() {
   }
@@ -20,14 +21,12 @@ export class LoginComponent implements OnInit {
   });
 
   onSubmit(){
-    // console.log('form     '+this.loginForm.get('email').value);
-    // console.log('local     '+localStorage.getItem('email'));
     if(this.loginForm.get('email').value===localStorage.getItem('email')&&this.loginForm.get('password').value===localStorage.getItem('password')){
       localStorage.clear();
-      alert("done");
       this.router.navigate(['/home']);
     }else{
-      alert("not done");
+      alert("Login Faild")
+      //this.loginStatus = "Login Faild"
     }
   }
 }

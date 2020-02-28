@@ -54,7 +54,9 @@
             <label>Password</label>
             <input [class.is-invalid]="password.invalid && password.touched"
             formControlName="password" type="password" class="form-control">
-            <small class="text-danger" [class.d-none]="password.valid || password.untouched">field is required</small>
+            <small class="text-danger" [class.d-none]="password.valid || password.untouched">
+                password contain atleast one capital letter (A) , one lower letter (a), one digit (2), one speical character (#)
+            </small>
 
         </div>
 
