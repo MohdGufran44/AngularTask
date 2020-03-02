@@ -25,8 +25,7 @@ export class LoginComponent implements OnInit {
       localStorage.clear();
       this.router.navigate(['/home']);
     }else{
-      alert("Login Faild")
-      //this.loginStatus = "Login Faild"
+      this.loginStatus = "username and password is incorrect";
     }
   }
 }

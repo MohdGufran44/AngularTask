@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 // import { FormGroup, FormControl, Validator } from '@angular/forms';
 import { FormBuilder, Validators } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-register',
@@ -9,9 +10,11 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
-  constructor(private router:Router, private builder: FormBuilder){}
+   
   
+
+  constructor(private router:Router, private builder: FormBuilder,private datePipe: DatePipe){}
+  date = this.datePipe.transform(new Date(), "yyyy-MM-dd");
   get firstName(){
     return this.registrationForm.get('firstName');
   }
@@ -43,8 +46,8 @@ export class RegisterComponent implements OnInit {
   }
 
   registrationForm = this.builder.group({
-    firstName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
-    lastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+    firstName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern("/^[a-zA-Z\s]*$/")]],
+    lastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern("/^[a-zA-Z\s]*$/")]],
     dob: ['', Validators.required],
     gender: ['', Validators.required],
     email: ['', [Validators.required, Validators.pattern("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,30}")]],
@@ -74,6 +77,7 @@ export class RegisterComponent implements OnInit {
   // });
 
   ngOnInit() {
+    console.log(this.date);
   }
 
   // home(){
@@ -84,6 +88,7 @@ export class RegisterComponent implements OnInit {
     localStorage.setItem("email", this.registrationForm.get('email').value);
     localStorage.setItem("password", this.registrationForm.get('password').value);
     this.router.navigate(['/home']);
+    console.log(this.registrationForm);
   }
   status='';
   

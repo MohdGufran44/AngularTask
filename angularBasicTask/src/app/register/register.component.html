@@ -7,9 +7,10 @@
             formControlName="firstName" type="text" class="form-control">
             <!-- <small class="text-danger" [class.d-none]="firstName.valid || firstName.untouched">First Name is required</small> -->
             <div *ngIf="firstName.invalid && firstName.touched">
-                <small *ngIf="firstName.errors?.required" class="text-danger">Field is required</small>
+                <small *ngIf="firstName.errors?.required" class="text-danger">First Name is required</small>
                 <small *ngIf="firstName.errors?.minlength" class="text-danger">Length must be at least 3 character</small>
                 <small *ngIf="firstName.errors?.maxlength" class="text-danger">Length must be at most 20 character</small>
+                <small *ngIf="firstName.errors?.pattern" class="text-danger"> First Name should be string</small>
             </div>
         </div>
 
@@ -19,16 +20,17 @@
             formControlName="lastName" type="text" class="form-control">
             <!-- <small class="text-danger" [class.d-none]="registrationForm.get('lastName').valid || registrationForm.get('lastName').untouched">Last Name is required</small> -->
             <div *ngIf="lastName.invalid && lastName.touched">
-                <small *ngIf="lastName.errors?.required" class="text-danger">Field is required</small>
+                <small *ngIf="lastName.errors?.required" class="text-danger">Last Name is required</small>
                 <small *ngIf="lastName.errors?.minlength" class="text-danger">Length must be at least 3 character</small>
                 <small *ngIf="lastName.errors?.maxlength" class="text-danger">Length must be at most 20 character</small>
+                <small *ngIf="lastName.errors?.pattern" class="text-danger"> Last Name should be string</small>
             </div>
         </div>
 
         <div class="form-group">
             <label>date of Birth</label>
             <input [class.is-invalid]="dob.invalid && dob.touched" 
-            formControlName="dob" type="date" class="form-control">
+            formControlName="dob" type="date" class="form-control" [max]="date">
             <small class="text-danger" [class.d-none]="dob.valid || dob.untouched">Date is required</small>
         </div>
 
@@ -47,22 +49,25 @@
             <label>Email</label>
             <input [class.is-invalid]="email.invalid && email.touched" 
             formControlName="email" type="email" class="form-control">
-            <small class="text-danger" [class.d-none]="email.valid || email.untouched">Field is required</small>
+            <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required</small>
         </div>
 
         <div class="form-group">
             <label>Password</label>
             <input [class.is-invalid]="password.invalid && password.touched"
             formControlName="password" type="password" class="form-control">
+            <!-- <small *ngIf="password.errors?.required" class="text-danger">Password is required</small> -->
             <small class="text-danger" [class.d-none]="password.valid || password.untouched">
-                password contain atleast one capital letter (A) , one lower letter (a), one digit (2), one speical character (#)
+                <!-- password contain atleast one capital letter (A) , one lower letter (a), one digit (2), one speical character (#) -->
+                Password is required
             </small>
 
         </div>
 
         <div class="form-group">
             <label>Confirm Password</label>
-            <input (blur)="check()" formControlName="ConfirmPassword" type="password" class="form-control">
+            <input (blur)="check()" formControlName="ConfirmPassword" type="password" class="form-control" >
+            <small></small>
             <p class="text-danger">{{status}}</p>
         </div>
 
@@ -71,7 +76,7 @@
                 <label>English</label>
                 <input [class.is-invalid]="english.invalid && english.touched" 
                 formControlName="english" type="number" class="form-control">
-            <small class="text-danger" [class.d-none]="english.valid || english.untouched">Digit is required</small>
+            <small class="text-danger" [class.d-none]="english.valid || english.untouched">English Marks is required</small>
 
             </div>
 
@@ -79,14 +84,14 @@
                 <label>Math</label>
                 <input [class.is-invalid]="math.invalid && math.touched"
                 formControlName="math" type="number" class="form-control">
-                <small class="text-danger" [class.d-none]="math.valid || math.untouched">Digit is required</small>
+                <small class="text-danger" [class.d-none]="math.valid || math.untouched">Math Marks is required</small>
             </div>
 
             <div class="form-group">
                 <label>Science</label>
                 <input [class.is-invalid]="science.invalid && science.touched"
                 formControlName="science" type="number" class="form-control">
-            <small class="text-danger" [class.d-none]="science.valid || science.untouched">Digit is required</small>
+            <small class="text-danger" [class.d-none]="science.valid || science.untouched">Science marks is required</small>
             </div>
         </div>
 
