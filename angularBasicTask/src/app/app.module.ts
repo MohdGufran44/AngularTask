@@ -9,6 +9,7 @@ import { EditComponent } from './edit/edit.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { ComponentsDirectivesComponent } from './components-directives/components-directives.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HomeComponent } from './home/home.component';
     EditComponent,
     RegisterComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    ComponentsDirectivesComponent
   ],
   imports: [
     BrowserModule,

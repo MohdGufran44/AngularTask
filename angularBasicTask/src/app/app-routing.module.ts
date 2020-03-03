@@ -1,3 +1,4 @@
+import { ComponentsDirectivesComponent } from './components-directives/components-directives.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { StudentsComponent } from './students/students.component';
@@ -10,6 +11,7 @@ const routes: Routes = [
   {path : '', redirectTo: '/home', pathMatch : 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'components-directives', component: ComponentsDirectivesComponent}
   // {path: 'students', children:[
   //   {path: '', component: StudentsComponent},
   //   {path: ':id', component: EditComponent}
