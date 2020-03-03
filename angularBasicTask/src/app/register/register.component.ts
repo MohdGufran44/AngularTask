@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   get lastName(){
     return this.registrationForm.get('lastName');
   }
-
+  
   get dob(){
     return this.registrationForm.get('dob');
   }
@@ -33,6 +33,10 @@ export class RegisterComponent implements OnInit {
 
   get password(){
     return this.registrationForm.get('password');
+  }
+
+  get ConfirmPassword(){
+    return this.registrationForm.get('ConfirmPassword');
   }
 
   get english(){

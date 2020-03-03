@@ -56,7 +56,6 @@
             <label>Password</label>
             <input [class.is-invalid]="password.invalid && password.touched"
             formControlName="password" type="password" class="form-control">
-            <!-- <small *ngIf="password.errors?.required" class="text-danger">Password is required</small> -->
             <small class="text-danger" [class.d-none]="password.valid || password.untouched">
                 <!-- password contain atleast one capital letter (A) , one lower letter (a), one digit (2), one speical character (#) -->
                 Password is required
@@ -66,8 +65,10 @@
 
         <div class="form-group">
             <label>Confirm Password</label>
-            <input (blur)="check()" formControlName="ConfirmPassword" type="password" class="form-control" >
-            <small></small>
+            <input [class.is-invalid]="ConfirmPassword.invalid && ConfirmPassword.touched" (keyup)="check()" formControlName="ConfirmPassword" type="password" class="form-control" >
+            <small class="text-danger" [class.d-none]="ConfirmPassword.valid || ConfirmPassword.untouched">
+                Confirm Password is required
+            </small>
             <p class="text-danger">{{status}}</p>
         </div>
 
