@@ -9,8 +9,8 @@ import { EditComponent } from './edit/edit.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { ComponentsDirectivesComponent } from './components-directives/components-directives.component';
-
+import { DirectivesComponent } from './directives/directives.component';
+import { ChangeColerDirective } from './custom-directive/change-coler.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +20,8 @@ import { ComponentsDirectivesComponent } from './components-directives/component
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    ComponentsDirectivesComponent
+    DirectivesComponent,
+    ChangeColerDirective,
   ],
   imports: [
     BrowserModule,

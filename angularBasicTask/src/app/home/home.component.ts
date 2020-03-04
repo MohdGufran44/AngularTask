@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   }
 
   comdir(){
-    this.router.navigate(['/components-directives']);
+    this.router.navigate(['/directives']);
   }
 
 }
