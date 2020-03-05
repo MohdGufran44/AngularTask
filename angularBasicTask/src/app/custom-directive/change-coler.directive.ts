@@ -15,11 +15,4 @@ export class ChangeColerDirective {
       this.vic.clear();
     }
   }
-
-  // constructor(private el: ElementRef) {
-  //   el.nativeElement.style.backgroundColor = 'red';
-  // }
-
-
-
 }

@@ -11,6 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { DirectivesComponent } from './directives/directives.component';
 import { ChangeColerDirective } from './custom-directive/change-coler.directive';
+import { EmployeeService } from './employee.service';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +24,7 @@ import { ChangeColerDirective } from './custom-directive/change-coler.directive'
     HomeComponent,
     DirectivesComponent,
     ChangeColerDirective,
+    EmployeeListComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,7 @@ import { ChangeColerDirective } from './custom-directive/change-coler.directive'
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
