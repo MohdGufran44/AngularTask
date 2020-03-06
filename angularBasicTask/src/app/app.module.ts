@@ -10,6 +10,11 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 
+import { AccountComponent } from './account/account.component';
+import { NewAccountComponent } from './new-account/new-account.component';
+import { AccountsService } from './accounts.service';
+import { LoggingService } from './logging.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +23,9 @@ import { HomeComponent } from './home/home.component';
     EditComponent,
     RegisterComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    AccountComponent,
+    NewAccountComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +33,7 @@ import { HomeComponent } from './home/home.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AccountsService, LoggingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
