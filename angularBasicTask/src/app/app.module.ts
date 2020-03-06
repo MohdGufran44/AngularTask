@@ -13,6 +13,7 @@ import { DirectivesComponent } from './directives/directives.component';
 import { ChangeColerDirective } from './custom-directive/change-coler.directive';
 import { EmployeeService } from './employee.service';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
     DirectivesComponent,
     ChangeColerDirective,
     EmployeeListComponent,
+    EmployeeDetailComponent,
   ],
   imports: [
     BrowserModule,

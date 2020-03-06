@@ -1,3 +1,4 @@
+import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { DirectivesComponent } from './directives/directives.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
@@ -11,7 +12,8 @@ const routes: Routes = [
   {path : '', redirectTo: '/home', pathMatch : 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'directives', component: DirectivesComponent}
+  {path: 'directives', component: DirectivesComponent},
+  {path: 'emplist', component: EmployeeListComponent}
   // {path: 'students', children:[
   //   {path: '', component: StudentsComponent},
   //   {path: ':id', component: EditComponent}

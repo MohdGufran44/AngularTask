@@ -21,4 +21,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/directives']);
   }
 
+  emplist(){
+    this.router.navigate(['/emplist']);
+  }
 }
